@@ -12,9 +12,11 @@
 #### step 7 : npm i @types/body-parser @types/express @types/node
 #### step 8 : npm i --save-dev concurrently nodemon
 #### step 9 : Update the below scripts in package.json file
-            "scripts": {
-            "start": "cross-env NODE_ENV=development concurrently \"tsc --watch\" \"nodemon -q dist/index.js\"",
-            "test": "echo \"Error: no test specified\" && exit 1"
+           "scripts": {
+              "build": "rimraf dist && tsc",
+              "start": "cross-env NODE_ENV=development concurrently \"tsc --watch\" \"nodemon -q dist/index.js\"",
+              "prestart": "npm run build",
+              "test": "echo \"Error: no test specified\" && exit 1"
             },
 
 #### step 10 : Creating the index.ts file and adding the below code sinnpets
